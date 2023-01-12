@@ -1,31 +1,12 @@
-import {getIndexRoute} from './utils/api'
-import { useEffect, useState } from 'react';
 import './App.css';
+import ImageUp from './components/ImageUpload';
 
 function App() {
-  const [index, setIndex]= useState([]);
-
-  useEffect(() => {
-		try {
-			getIndexRoute().then((data) => {
-				setIndex(data);
-        console.log('this is', data);
-			});
-		} catch (error) {
-			console.log(error);
-		}
-	}, [])
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>{index.message}</p>
-      </header>
-      <form>
-
-      </form>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<ImageUp />
+		</div>
+	);
 }
 
 export default App;

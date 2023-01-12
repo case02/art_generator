@@ -34,7 +34,7 @@ app.post('/test', function (req, res) {
 	});
 });
 
-app.use('/user', userCtrl);
+// app.use('/user', userCtrl);
 
 // Firedbase ADMIN SDK
 var admin = require('firebase-admin');
