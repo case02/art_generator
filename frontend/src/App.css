@@ -1,0 +1,17 @@
+/* .App {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}*/
+
+.App {
+  text-align: center;
+  align-items: center;
+}
+
+img {
+  width: 300px;
+  margin: 10px;
+} 
