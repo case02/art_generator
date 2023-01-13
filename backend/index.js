@@ -1,7 +1,6 @@
 // +-+-+-+-+-+-+-+-+-+-+-+-+
 // |D|E|P|E|N|D|E|N|C|I|E|S|
 // +-+-+-+-+-+-+-+-+-+-+-+-+
-//slight change to git
 require('dotenv').config();
 // access node packages
 const express = require('express');
