@@ -24,6 +24,10 @@ export function AuthProvider({children}) {
         return auth.signInWithEmailAndPassword(email, password)
     }
 
+    function logout() {
+        return auth.signOut()
+    }
+
     //set current user on mount
     useEffect(() => {
         // firebase method to take in user and set current user 
@@ -40,7 +44,8 @@ export function AuthProvider({children}) {
     const value = {
         currentUser,
         login,
-        signup
+        signup,
+        logout
     }
 
   return (

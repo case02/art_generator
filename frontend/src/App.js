@@ -10,6 +10,7 @@ import ImageUp from './components/ImageUpload';
 import Signup from './components/Signup';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
 // api methods
 import { getIndexRoute } from './utils/api';
 
@@ -37,7 +38,9 @@ function App() {
 				<div className='w-100' style={{ maxWidth: '400px' }}>
 					<AuthProvider>
 						<Routes>
-							<Route exact path='/' element={<Dashboard />} />
+							<Route exact path='/' element={<PrivateRoute />}>
+								<Route exact path='/' element={<Dashboard />} />
+							</Route>
 							<Route path='/signup' element={<Signup />} />
 							<Route path='/login' element={<Login />} />
 						</Routes>
