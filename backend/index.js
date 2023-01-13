@@ -26,12 +26,6 @@ app.get('/', function (req, res) {
 	});
 });
 
-app.post('/test', function (req, res) {
-	return res.json({
-		message: 'Welcome :>',
-		success: true,
-	});
-});
 
 // app.use('/user', userCtrl);
 
