@@ -11,6 +11,8 @@ import Signup from './components/Signup';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
+import ForgotPassword from './components/ForgotPassword';
+
 // api methods
 import { getIndexRoute } from './utils/api';
 
@@ -43,6 +45,7 @@ function App() {
 							</Route>
 							<Route path='/signup' element={<Signup />} />
 							<Route path='/login' element={<Login />} />
+							<Route path='/forgot-password' element={<ForgotPassword />} />
 						</Routes>
 					</AuthProvider>
 				</div>

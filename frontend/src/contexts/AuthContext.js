@@ -24,9 +24,16 @@ export function AuthProvider({children}) {
         return auth.signInWithEmailAndPassword(email, password)
     }
 
+    // logout current user
     function logout() {
         return auth.signOut()
     }
+
+    // reset password
+    function resetPassword(email) {
+			return auth.sendPasswordResetEmail(email);
+		}
+
 
     //set current user on mount
     useEffect(() => {
@@ -45,7 +52,8 @@ export function AuthProvider({children}) {
         currentUser,
         login,
         signup,
-        logout
+        logout,
+        resetPassword
     }
 
   return (
