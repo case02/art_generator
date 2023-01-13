@@ -19,7 +19,12 @@ export function AuthProvider({children}) {
         return auth.createUserWithEmailAndPassword(email, password)
     }
 
-    //set 
+    // request user from firebase and logs in if user exists
+    function login(email, password) {
+        return auth.signInWithEmailAndPassword(email, password)
+    }
+
+    //set current user on mount
     useEffect(() => {
         // firebase method to take in user and set current user 
         // unsubscribe from on off change event when done
@@ -34,6 +39,7 @@ export function AuthProvider({children}) {
      
     const value = {
         currentUser,
+        login,
         signup
     }
 

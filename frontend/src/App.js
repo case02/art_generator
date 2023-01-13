@@ -8,6 +8,8 @@ import { Routes, Route } from 'react-router-dom';
 // components
 import ImageUp from './components/ImageUpload';
 import Signup from './components/Signup';
+import Dashboard from './components/Dashboard';
+import Login from './components/Login';
 // api methods
 import { getIndexRoute } from './utils/api';
 
@@ -29,16 +31,20 @@ function App() {
 			<p>{index.message}</p>
 
 			{/* SignUp Route */}
-			<Container className='d-flex align-items-center justify-content-center' style={{ minHeight: '100vh' }}>
+			<Container
+				className='d-flex align-items-center justify-content-center'
+				style={{ minHeight: '100vh' }}>
 				<div className='w-100' style={{ maxWidth: '400px' }}>
 					<AuthProvider>
 						<Routes>
-							<Route path="/signup" element={<Signup />} />
+							<Route exact path='/' element={<Dashboard />} />
+							<Route path='/signup' element={<Signup />} />
+							<Route path='/login' element={<Login />} />
 						</Routes>
 					</AuthProvider>
 				</div>
 			</Container>
-		
+
 			<br />
 			<ImageUp />
 		</div>
