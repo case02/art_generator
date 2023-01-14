@@ -46,7 +46,7 @@ export default function UpdateProfile() {
 			className='d-flex align-items-center justify-content-center'
 			style={{ minHeight: '100vh' }}>
 			<div className='w-100' style={{ maxWidth: '400px' }}>
-				<Card>
+				<Card className='card update-user-card'>
 					<Card.Body>
 						<h2 className='text-center mb-4'>Update Profile</h2>
 						{error && <Alert variant='danger'>{error}</Alert>}
@@ -76,6 +76,7 @@ export default function UpdateProfile() {
 									placeholder='Leave blank to keep the same'
 								/>
 							</Form.Group>
+							<br />
 							<Button disabled={loading} className='w-100' type='submit'>
 								Update
 							</Button>

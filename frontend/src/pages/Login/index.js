@@ -31,7 +31,7 @@ export default function Login() {
 			className='d-flex align-items-center justify-content-center'
 			style={{ minHeight: '100vh' }}>
 			<div className='w-100' style={{ maxWidth: '400px' }}>
-				<Card>
+				<Card className='card signup-card'>
 					<Card.Body>
 						<h2 className='w-100 text-center mt-2'>Log In</h2>
 						{error && <Alert variant='danger'>{error}</Alert>}

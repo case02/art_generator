@@ -1,16 +1,21 @@
 header {
   display: flex;
+  max-height: 72px;
   justify-content: space-between;
   align-items: center;
-  background: #002A3E;
+  background: #0D1B2A;
 }
 header .logo {
   display: flex;
 }
 header .logo img {
-  max-width: 80px;
+  max-width: 50px;
+  max-height: 50px;
+  margin-top: 2em;
+  margin-left: 1em;
 }
 header .logo h6 {
+  margin-top: 2em;
   line-height: 5;
   color: white;
 }
@@ -22,7 +27,7 @@ header .nav-links {
   top: 0;
   right: 0;
   text-align: right;
-  background: #002A3E;
+  border-radius: 0.5em;
   padding: 1em;
 }
 header .nav-links ul {

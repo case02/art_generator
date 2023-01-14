@@ -55,7 +55,9 @@ export default function Nav(props) {
 	return (
 		<header>
 			<div className='logo'>
-				<img alt='A G' className='logo' src={artgen} />
+				<Link className='mt-1' to='/'>
+					<img alt='A G' className='logo' src={artgen} />
+				</Link>
 				<h6>art generator</h6>
 			</div>
 			<nav>
