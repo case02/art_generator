@@ -1,10 +1,10 @@
 import { updateCurrentUser } from 'firebase/auth';
 import React, { useState } from 'react';
-import { Card, Button, Alert } from 'react-bootstrap';
+import { Card, Button, Alert, Container } from 'react-bootstrap';
 import { useAuth } from'../../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 
-export default function Dashboard() {
+export default function Profile() {
     const [error, setError] = useState('')
     const { currentUser, logout, deleteUser } = useAuth()
     const navigate = useNavigate()
@@ -32,7 +32,8 @@ export default function Dashboard() {
 		}
 
   return (
-		<>
+	<Container className='d-flex align-items-center justify-content-center' style={{ minHeight: '100vh' }}>
+		<div className='w-100' style={{ maxWidth: '400px' }}>
 			<Card>
 				<Card.Body>
 					<h2 className='w-100 text-center mt-2'>Profile</h2>
@@ -51,6 +52,7 @@ export default function Dashboard() {
 					Delete User
 				</Button>
 			</div>
-		</>
+		</div>
+	</Container>
 	);
 }

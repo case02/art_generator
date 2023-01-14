@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext'
 // style
+import artgen from '../../images/GenArt.png';
 import './style.css';
 
 export default function Nav(props) {
@@ -28,7 +29,7 @@ export default function Nav(props) {
 				return (
 					<>
 						<li>
-							<Link to='/dashboard'>
+							<Link to='/profile'>
 								Profile
 							</Link>
 						</li>
@@ -53,14 +54,15 @@ export default function Nav(props) {
 	
 	return (
 		<header>
-			{/* <Logo /> */}
+			<div className='logo'>
+				<img alt='A G' className='logo' src={artgen} />
+				<h6>art generator</h6>
+			</div>
 			<nav>
 				<div className='nav-links'>
 					<ul>
 						<li>
-							<Link to='/'>
-								Home
-							</Link>
+							<Link to='/'>Home</Link>
 						</li>
 						{/* <li>
                             <Link> to="/about" >  
@@ -68,9 +70,7 @@ export default function Nav(props) {
                             </Link>
                         </li> */}
 						<li>
-							<Link to='/'>
-								Generator
-							</Link>
+							<Link to='/generator'>Generator</Link>
 						</li>
 						{conditionalUserLink()}
 					</ul>
