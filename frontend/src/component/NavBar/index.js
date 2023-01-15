@@ -31,7 +31,7 @@ function NavBar() {
 			return (
                 <>
                     <Nav.Link href='/profile'>Profile</Nav.Link>
-                    <Nav.Link href='/profile'>Log Out</Nav.Link>
+                    <Nav.Link onClick={handleLogout}>Log Out</Nav.Link>
                 </>
 			);
 		} else {

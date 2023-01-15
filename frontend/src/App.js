@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Generator from './pages/Generator';
 import ForgotPassword from './pages/ForgotPassword';
+import NotFound from './pages/NotFound';
 import UpdateProfile from './pages/UpdateProfile';
 //components
 import PrivateRoute from './component/PrivateRoute';
@@ -38,6 +39,7 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/generator' element={<Generator />} />
+				<Route path='*' element={<NotFound />} />
 
 				{/* Private Routes */}
 				<Route exact path='/profile' element={<PrivateRoute />}>
