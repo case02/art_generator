@@ -57,7 +57,7 @@ function NavBar() {
 								style={{ maxWidth: '50px' }}
 								src={artgen}
 							/>
-							ART GENERATOR
+							AUGMENT
 						</Navbar.Brand>
 						<Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
 						<Navbar.Offcanvas

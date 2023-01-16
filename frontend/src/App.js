@@ -15,6 +15,7 @@ import UpdateProfile from './pages/UpdateProfile';
 import PrivateRoute from './component/PrivateRoute';
 import Nav from './component/Nav';
 import NavBar from './component/NavBar';
+import Footer from './component/Footer';
 // api 
 import { getIndexRoute } from './utils/api';
 
@@ -35,6 +36,7 @@ function App() {
 		<div className='App'>
 			{/* <p>{index.message}</p> */}
 			<NavBar />
+			{/* <Footer /> */}
 
 			<Routes>
 				<Route path='/' element={<Home />} />

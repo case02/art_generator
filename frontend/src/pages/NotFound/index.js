@@ -8,7 +8,7 @@ export default function NotFound() {
 			<img
 				alt='oops!'
 				className='logo'
-				style={{ maxWidth: '500px' }}
+				style={{ maxWidth: '60%' }}
 				src={oops}
 			/>
 			<h3>404 - PAGE NOT FOUND</h3>
@@ -16,7 +16,14 @@ export default function NotFound() {
 				The page you are looking for might have been removed had its name
 				changed or is temporarily unavailable.
 			</p>
-			<Button href='/' variant='primary' size='lg' active>
+            <br />
+			<Button
+				className='square bg-primary rounded-pill'
+				style={{ width: '230px' }}
+				href='/'
+				variant='primary'
+				size='lg'
+				active>
 				GO TO HOMEPAGE
 			</Button>
 		</div>

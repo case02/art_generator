@@ -3,6 +3,7 @@ import { Form, Button, Card, Alert, Container } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 
+
 export default function Signup() {
 	const emailRef = useRef();
 	const passwordRef = useRef();
@@ -37,8 +38,8 @@ export default function Signup() {
 
 	return (
 		<Container
-			className='d-flex align-items-center justify-content-center'
-			style={{ minHeight: '100vh' }}>
+			className='container d-flex align-items-center justify-content-center'
+			style={{ minHeight: '60vh' }}>
 			<div className='w-100' style={{ maxWidth: '400px' }}>
 				<Card className='card signup-card'>
 					<Card.Body>
