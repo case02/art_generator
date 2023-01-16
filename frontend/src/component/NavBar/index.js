@@ -6,6 +6,7 @@ import artgen from '../../images/GenArt.png';
 import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import './style.css'
 
 function NavBar() {
 	const { currentUser, logout } = useAuth();
@@ -44,10 +45,10 @@ function NavBar() {
 			{['sm'].map((expand) => (
 				<Navbar
 					key={expand}
-					bg='dark'
+					// bg='dark'
 					variant='dark'
 					expand={expand}
-					className='mb-3'>
+					className='mb-3 color-nav'>
 					<Container fluid>
 						<Navbar.Brand href='/'>
 							<img

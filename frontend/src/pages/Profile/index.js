@@ -50,6 +50,7 @@ export default function Profile() {
 					<Button variant='light' onClick={handleLogout}>
 						Log out
 					</Button>
+					{' '}
 					<Button variant='light' onClick={handleDelete}>
 						Delete User
 					</Button>

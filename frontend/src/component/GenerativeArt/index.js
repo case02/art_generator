@@ -367,12 +367,12 @@ export default function GenerativeArt() {
 			<canvas id='displayCanvas' width='1680' height='600px'>
 				Your browser does not support HTML5 canvas.
 			</canvas>
-			{/* <form>
+			<form>
 				<p id='caption'>
 					<input id="btnRegenerate" value="regenerate" type="button" />
                     <input id="btnExport" value="export image (png)" type="button" />
 				</p>
-			</form> */}
+			</form>
 		</div>
 	);
 }
