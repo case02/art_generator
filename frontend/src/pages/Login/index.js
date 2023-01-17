@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function Login() {
 	const emailRef = useRef();
 	const passwordRef = useRef();
-	const { login } = useAuth();
+	const { login, currentUser } = useAuth();
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -30,6 +30,7 @@ export default function Login() {
 		<Container
 			className='d-flex align-items-center justify-content-center'
 			style={{ minHeight: '60vh' }}>
+			{!currentUser ? 	
 			<div className='w-100' style={{ maxWidth: '400px' }}>
 				<Card className='card signup-card'>
 					<Card.Body>
@@ -53,11 +54,11 @@ export default function Login() {
 							<Link to='/forgot-password'>Forgot Password?</Link>
 						</div>
 					</Card.Body>
-				</Card>
+				</Card> 
 				<div className='w-100 text-center mt-2'>
 					Need an account? <Link to='/signup'>Sign Up</Link>
-				</div>
-			</div>
+				</div> 
+			</div> : <div><p>You are already signed in as</p>{currentUser.email}</div>}
 		</Container>
 	);
 }

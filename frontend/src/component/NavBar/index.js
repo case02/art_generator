@@ -42,30 +42,28 @@ function NavBar() {
 
 	return (
 		<>
-			{['sm'].map((expand) => (
 				<Navbar
-					key={expand}
-					// bg='dark'
+					bg='dark'
 					variant='dark'
-					expand={expand}
+					expand='sm'
 					className='mb-3 color-nav'>
 					<Container fluid>
 						<Navbar.Brand href='/'>
 							<img
-								alt='A G'
+								alt='A.G'
 								className='logo'
 								style={{ maxWidth: '50px' }}
 								src={artgen}
 							/>
 							AUGMENT
 						</Navbar.Brand>
-						<Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+						<Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />
 						<Navbar.Offcanvas
-							id={`offcanvasNavbar-expand-${expand}`}
-							aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+							id={`offcanvasNavbar-expand-sm`}
+							aria-labelledby={`offcanvasNavbarLabel-expand-sm`}
 							placement='end'>
 							<Offcanvas.Header closeButton>
-								<Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+								<Offcanvas.Title id={`offcanvasNavbarLabel-expand-sm`}>
 									Art Generator
 								</Offcanvas.Title>
 							</Offcanvas.Header>
@@ -79,7 +77,6 @@ function NavBar() {
 						</Navbar.Offcanvas>
 					</Container>
 				</Navbar>
-			))}
 		</>
 	);
 }

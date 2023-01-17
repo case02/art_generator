@@ -14,7 +14,7 @@ export function AuthProvider({children}) {
     const [loading, setLoading] = useState(true)
 
     // use auth module from firebase.js to login user
-    function signup(email, password) {
+    function signup( email, password ) {
         // return promise of succesful login, can be used to return error
         return auth.createUserWithEmailAndPassword(email, password)
     }

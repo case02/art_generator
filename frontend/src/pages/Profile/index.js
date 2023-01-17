@@ -40,7 +40,7 @@ export default function Profile() {
 					<Card.Body>
 						<h2 className='w-100 text-center mt-2'>Profile</h2>
 						{error && <Alert variant='danger'>{error}</Alert>}
-						<strong>Email: </strong> {currentUser.email}
+						<strong>Email: </strong> {currentUser.email} {currentUser.uid}
 						<Link to='/update-profile' className='btn btn-primary w-100 mt-3'>
 							Update Profile
 						</Link>

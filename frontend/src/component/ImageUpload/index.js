@@ -8,6 +8,7 @@ import {
 } from 'firebase/storage';
 import { storage } from '../../firebase.js';
 import { v4 } from 'uuid';
+import { doc, setDoc } from 'firebase/firestore'; 
 
 function ImageUp() {
 	const [imageUpload, setImageUpload] = useState(null);

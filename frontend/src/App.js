@@ -36,7 +36,7 @@ function App() {
 		<div className='App'>
 			{/* <p>{index.message}</p> */}
 			<NavBar />
-			{/* <Footer /> */}
+			<Footer />
 
 			<Routes>
 				<Route path='/' element={<Home />} />

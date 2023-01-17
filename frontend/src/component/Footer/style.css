@@ -2,7 +2,8 @@
     bottom: 0;
     position: fixed;
     width: 100%;
+    z-index: 0;
 }
-.social{
-    height: 0px;
+.color-footer {
+    background-color: #00072d;
 }
