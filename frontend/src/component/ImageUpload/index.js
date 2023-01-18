@@ -45,7 +45,7 @@ function ImageUp() {
 			/>
 			<button onClick={uploadFile}> Upload Image</button>
 			{imageUrls.map((url, i) => {
-				return <img key={i} src={url} />;
+				return <img key={i} src={url}/>;
 			})}
 		</div>
 	);

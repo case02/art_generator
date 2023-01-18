@@ -4,6 +4,14 @@
     width: 100%;
     z-index: 0;
 }
-.color-footer {
-    background-color: #00072d;
+.social-icon{
+    border-radius: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    /* For mobile phones: */
+    [class*="media-hidden"] {
+        display: none;
+    }
 }

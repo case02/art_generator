@@ -29,7 +29,6 @@ export function AuthProvider({children}) {
         return auth.signOut()
     }
 
-    // reset password
     function resetPassword(email) {
 			return auth.sendPasswordResetEmail(email);
 		}

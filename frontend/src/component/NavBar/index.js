@@ -41,43 +41,41 @@ function NavBar() {
 	};
 
 	return (
-		<>
-				<Navbar
-					bg='dark'
-					variant='dark'
-					expand='sm'
-					className='mb-3 color-nav'>
-					<Container fluid>
-						<Navbar.Brand href='/'>
-							<img
-								alt='A.G'
-								className='logo'
-								style={{ maxWidth: '50px' }}
-								src={artgen}
-							/>
-							AUGMENT
-						</Navbar.Brand>
-						<Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />
-						<Navbar.Offcanvas
-							id={`offcanvasNavbar-expand-sm`}
-							aria-labelledby={`offcanvasNavbarLabel-expand-sm`}
-							placement='end'>
-							<Offcanvas.Header closeButton>
-								<Offcanvas.Title id={`offcanvasNavbarLabel-expand-sm`}>
-									Art Generator
-								</Offcanvas.Title>
-							</Offcanvas.Header>
-							<Offcanvas.Body>
-								<Nav className='justify-content-end flex-grow-1 pe-3'>
-									<Nav.Link href='/'>Home</Nav.Link>
-									<Nav.Link href='/generator'>Generator</Nav.Link>
-									{conditionalUserLink()}
-								</Nav>
-							</Offcanvas.Body>
-						</Navbar.Offcanvas>
-					</Container>
-				</Navbar>
-		</>
+		<Navbar
+			bg='dark'
+			variant='dark'
+			expand='sm'
+			className='mb-3 color-nav'>
+			<Container fluid>
+				<Navbar.Brand href='/'>
+					<img
+						alt='A.G'
+						className='logo'
+						style={{ maxWidth: '50px' }}
+						src={artgen}
+					/>
+					{/* AUGMENT */}
+				</Navbar.Brand>
+				<Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`}/>
+				<Navbar.Offcanvas
+					id={`offcanvasNavbar-expand-sm`}
+					aria-labelledby={`offcanvasNavbarLabel-expand-sm`}
+					placement='end'>
+					<Offcanvas.Header closeButton>
+						<Offcanvas.Title id={`offcanvasNavbarLabel-expand-sm`}>
+							Art Generator
+						</Offcanvas.Title>
+					</Offcanvas.Header>
+					<Offcanvas.Body>
+						<Nav className='justify-content-end flex-grow-1 pe-3'>
+							<Nav.Link href='/'>Home</Nav.Link>
+							<Nav.Link href='/generator'>Generator</Nav.Link>
+							{conditionalUserLink()}
+						</Nav>
+					</Offcanvas.Body>
+				</Navbar.Offcanvas>
+			</Container>
+		</Navbar>
 	);
 }
 
