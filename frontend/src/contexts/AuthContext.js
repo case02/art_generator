@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "firebase/auth"
-import { auth } from '../firebase'
+import { auth, db } from '../firebase'
+import { doc, setDoc } from 'firebase/firestore'; 
 
 const AuthContext = React.createContext()
 
@@ -18,6 +19,16 @@ export function AuthProvider({children}) {
         // return promise of succesful login, can be used to return error
         return auth.createUserWithEmailAndPassword(email, password)
     }
+
+    // add user to db with image 
+    function addUserData(username, email, uploadedImages) {
+			// return promise of succesful login, can be used to return error
+			return setDoc(doc(db, 'users', currentUser.uid), {
+				username: username,
+				email: email,
+				uploadedImages: uploadedImages
+			});
+		}
 
     // request user from firebase and logs in if user exists
     function login(email, password) {

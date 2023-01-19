@@ -18,18 +18,21 @@ import NavBar from './component/NavBar';
 import Footer from './component/Footer';
 // api 
 import { getIndexRoute } from './utils/api';
-
+import { useAuth } from './contexts/AuthContext'
 function App() {
 	const [index, setIndex] = useState([]);
+	 const { currentUser } = useAuth();
 
 	useEffect(() => {
 		try {
 			getIndexRoute().then((data) => {
 				setIndex(data);
+				console.log(currentUser.uid);
 			});
 		} catch (error) {
 			console.log(error);
 		}
+		
 	}, []);
 
 	return (
