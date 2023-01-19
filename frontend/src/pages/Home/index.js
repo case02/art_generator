@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import UserImages from '../../component/UserImages'
 import GenerativeArt from '../../component/GenerativeArt'
 // firestore
 import { doc, setDoc, collection, getDocs } from 'firebase/firestore'; 
@@ -8,7 +9,7 @@ import { Button } from 'react-bootstrap';
 export default function Home() {
   const [user, setUsers] = useState([])
   const usersCollectionRef = collection(db, "users")
-
+  
   // useEffect(() => {
   //   const getUsers = async () => {
   //     const data = await getDocs(usersCollectionRef)
@@ -37,6 +38,7 @@ export default function Home() {
 				Homepage
 				<Button onClick={handleAdd}>Send</Button>
 				{/* <GenerativeArt /> */}
+				<UserImages />
 			</div>
 		</div>
 	);

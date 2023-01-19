@@ -14,6 +14,7 @@ export default function Signup() {
 	const { signup, currentUser } = useAuth();
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
+	const [userExists, setUserExists] = useState(false)
 	const navigate = useNavigate();
 
 	// handles
@@ -34,12 +35,14 @@ export default function Signup() {
 			await setDoc(doc(db, 'users', res.user.uid), {
 				username: usernameRef.current.value,
 				email: emailRef.current.value,
-				uploadedImage: [],
+				uploadedImages: [],
+				savedImages: []
 			})
 			navigate('/');
 		} catch (error){
 			console.log(error)
 		}
+		setUserExists(true);
 		setLoading(false);
 	}
 
@@ -48,7 +51,7 @@ export default function Signup() {
 		<Container
 			className='container d-flex align-items-center justify-content-center'
 			style={{ minHeight: '60vh' }}>
-			{!currentUser ? (
+			{!userExists ? (
 				<div className='w-100' style={{ maxWidth: '400px' }}>
 					<Card className='card signup-card'>
 						<Card.Body>

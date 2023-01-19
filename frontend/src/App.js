@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+// firebase
+
 // pages
 import Home from './pages/Home'
 import Signup from './pages/Signup';
@@ -13,37 +15,33 @@ import NotFound from './pages/NotFound';
 import UpdateProfile from './pages/UpdateProfile';
 //components
 import PrivateRoute from './component/PrivateRoute';
-import Nav from './component/Nav';
 import NavBar from './component/NavBar';
 import Footer from './component/Footer';
-// api 
-import { getIndexRoute } from './utils/api';
-import { useAuth } from './contexts/AuthContext'
+
 function App() {
-	const [index, setIndex] = useState([]);
-	 const { currentUser } = useAuth();
+	// const { currentUser } = useAuth();
+
+	
+
 
 	useEffect(() => {
-		try {
-			getIndexRoute().then((data) => {
-				setIndex(data);
-				console.log(currentUser.uid);
-			});
-		} catch (error) {
-			console.log(error);
-		}
+		
 		
 	}, []);
 
 	return (
 		<div className='App'>
-			{/* <p>{index.message}</p> */}
 			<NavBar />
 			<Footer />
 
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route path='/generator' element={<Generator />} />
+				<Route
+					path='/generator'
+					element={
+						<Generator/>
+					}
+				/>
 				<Route path='*' element={<NotFound />} />
 
 				{/* Private Routes */}
