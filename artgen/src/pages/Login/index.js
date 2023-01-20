@@ -20,8 +20,9 @@ export default function Login() {
 			setLoading(true);
 			await login(emailRef.current.value, passwordRef.current.value);
             navigate('/')
-		} catch {
-			setError('Failed to sign in');
+		} catch (error){
+			const message = error.message.replace('Firebase:', '')
+			setError(message);
 		}
 		setLoading(false);
 	}

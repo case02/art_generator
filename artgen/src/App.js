@@ -22,7 +22,7 @@ import Footer from './component/Footer';
 function App() {
 	const { currentUser } = useAuth();
 	const [userData, setUserData] = useState({});
-	
+	const [hideNav, setHideNav] = useState(false);
 
 	useEffect(() => {
 		if (currentUser){
@@ -36,21 +36,19 @@ function App() {
 	return (
 		<div className='App'>
 			<NavBar />
-			<Footer />
-
+			
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route
-					path='/generator'
-					element={
-						<Generator/>
-					}
-				/>
+				<Route path='/generator' element={<Generator />} />
 				<Route path='*' element={<NotFound />} />
 
 				{/* Private Routes */}
 				<Route exact path='/profile' element={<PrivateRoute />}>
-					<Route exact path='/profile' element={<Profile userdata={userData} />} />
+					<Route
+						exact
+						path='/profile'
+						element={<Profile userdata={userData} />}
+					/>
 				</Route>
 				<Route exact path='/' element={<PrivateRoute />}>
 					<Route exact path='/update-profile' element={<UpdateProfile />} />

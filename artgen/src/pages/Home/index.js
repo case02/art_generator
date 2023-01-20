@@ -1,42 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import GenerativeArt from '../../component/GenerativeArt'
-// firestore
-import { doc, setDoc, collection, getDocs } from 'firebase/firestore'; 
-import { db } from '../../firebase';
-import { Button } from 'react-bootstrap';
+import {
+	MDBBtn,
+} from 'mdb-react-ui-kit';
+import './style.css'
 
 export default function Home() {
-  const [user, setUsers] = useState([])
-  const usersCollectionRef = collection(db, "users")
-  
-  // useEffect(() => {
-  //   const getUsers = async () => {
-  //     const data = await getDocs(usersCollectionRef)
-  //     console.log(data)
-  //   }
-  //   getUsers()
-
-  // }, [])
-
-  const handleAdd = async (e) => {
-		e.preventDefault();
-		try {
-			await setDoc(doc(db, 'cities', 'LA'), {
-				name: 'Los Angeles',
-				state: 'CA',
-				country: 'USA',
-			});
-		} catch (e) {
-			console.error('Error adding document: ', e);
-		}
-	};
 
   return (
-		<div>
-			<div>
-				Homepage
-				<Button onClick={handleAdd}>Send</Button>
-				{/* <GenerativeArt /> */}
+		<div className='home-container'>
+			<div className='home-content'>
+				<img src="https://images.pexels.com/photos/5794559/pexels-photo-5794559.jpeg" alt="potrait" />
+				<section className="cta">
+					<h2>ARTGEN</h2>
+					<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lectus sit amet enim pellentesque, nec ultricies eros rutrum.
+					</p>
+				<a href="/generator"><button>GET STARTED</button></a>
+				</section> 
 			</div>
 		</div>
 	);

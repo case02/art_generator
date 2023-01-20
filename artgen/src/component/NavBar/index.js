@@ -45,12 +45,12 @@ function NavBar() {
 			bg='dark'
 			variant='dark'
 			expand='sm'
-			className='mb-3 color-nav'>
+			className='mb-0 color-nav'>
 			<Container fluid>
 				<Navbar.Brand href='/'>
 					<img
 						alt='A.G'
-						className='logo'
+						className='ml-0 logo'
 						style={{ maxWidth: '50px' }}
 						src={artgen}
 					/>

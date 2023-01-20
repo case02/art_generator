@@ -7,7 +7,7 @@ import {
 	MDBIcon,
 	MDBBtn,
 } from 'mdb-react-ui-kit';
-import './style.css'
+import './style.css';
 
 export default function App() {
 	return (

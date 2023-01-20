@@ -11,6 +11,8 @@ import { useAuth } from '../../contexts/AuthContext';
 import { storage } from '../../firebase.js';
 import { v4 } from 'uuid';
 import TextToImage from '../TextToImage';
+import { Figure, Button, InputGroup, Form } from 'react-bootstrap';
+import './style.css'
 
 function ImageUpload() {
 	const [imageUpload, setImageUpload] = useState(null);
@@ -70,18 +72,35 @@ function ImageUpload() {
 
 	return (
 		<div className='App'>
-			<TextToImage />
-			<input
-				type='file'
-				onChange={(event) => {
-					setImageUpload(event.target.files[0]);
-				}}
-			/>
-			<button onClick={uploadFile}> Upload Image</button>
+			{/* <TextToImage /> */}
+			<Form.Group
+				controlId='formFile'
+				className='m-4'
+				style={{ maxWidth: '400px' }}>
+				<Form.Control
+					type='file'
+					onChange={(event) => {
+						setImageUpload(event.target.files[0]);
+					}}
+				/>
+			</Form.Group>
+			{imageUpload ? <Button onClick={uploadFile}> Upload Image</Button> : null}
+
 			<br />
-			{imageUrls.map((url, i) => {
-				return <img key={i} src={url} />;
-			})}	
+			<Figure className='mt-4'>
+				{imageUrls.map((url, i) => {
+					return (
+						<Figure.Image
+							fluid
+							rounded
+							className='m-1 user-image'
+							key={i}
+							alt='all images'
+							src={url}
+						/>
+					);
+				})}
+			</Figure>
 		</div>
 	);
 }

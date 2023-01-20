@@ -7,7 +7,7 @@ import {
 } from 'firebase/storage';
 import { useAuth } from '../../contexts/AuthContext';
 import { storage } from '../../firebase.js';
-
+import './style.css'
 export default function UserImages() {
     const { currentUser } = useAuth();
     const [userImageUrls, setUserImageUrls] = useState([]);
@@ -33,10 +33,10 @@ export default function UserImages() {
   return (
     <>
         {currentUser ?
-        <Figure>
+        <Figure className="mt-4">
 			{userImageUrls.map((url, i) => {
 				return (
-                    <Figure.Image key={i} width={171} height={180} src={url} />
+                        <Figure.Image fluid rounded className="m-1 user-image" key={i} alt='user images' src={url} /> 
                 )
 			})}
 		</Figure>
