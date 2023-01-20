@@ -20,8 +20,9 @@ export default function App() {
 						className='m-1'
 						href='https://www.linkedin.com/in/caseystocker/'
 						target='blank'
-						role='button'>
-						<MDBIcon fab icon='linkedin-in'/>
+						role='button'
+						size='sm'>
+						<MDBIcon fab icon='linkedin-in' size='sm' />
 					</MDBBtn>
 
 					<MDBBtn
@@ -30,8 +31,9 @@ export default function App() {
 						className='m-1'
 						href='https://github.com/case02'
 						target='blank'
-						role='button'>
-						<MDBIcon fab icon='github' />
+						role='button'
+						size='sm'>
+						<MDBIcon fab icon='github' size='sm' />
 					</MDBBtn>
 				</section>
 			</MDBContainer>

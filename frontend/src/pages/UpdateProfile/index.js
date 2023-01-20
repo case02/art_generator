@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert, Container } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { updateUserEmail } from '../../utils/api';
 // import AddData from '../../component/AddData'
 
 export default function UpdateProfile() {

@@ -3,7 +3,8 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 // firebase
-
+import { useAuth } from './contexts/AuthContext';
+import { getUserData } from './utils/api';
 // pages
 import Home from './pages/Home'
 import Signup from './pages/Signup';
@@ -19,14 +20,17 @@ import NavBar from './component/NavBar';
 import Footer from './component/Footer';
 
 function App() {
-	// const { currentUser } = useAuth();
-
+	const { currentUser } = useAuth();
+	const [userData, setUserData] = useState({});
 	
 
-
 	useEffect(() => {
-		
-		
+		if (currentUser){
+			getUserData(currentUser)
+			.then((user) => {
+				setUserData(user);
+			})
+		}
 	}, []);
 
 	return (
@@ -46,7 +50,7 @@ function App() {
 
 				{/* Private Routes */}
 				<Route exact path='/profile' element={<PrivateRoute />}>
-					<Route exact path='/profile' element={<Profile />} />
+					<Route exact path='/profile' element={<Profile userData={userData} />} />
 				</Route>
 				<Route exact path='/' element={<PrivateRoute />}>
 					<Route exact path='/update-profile' element={<UpdateProfile />} />

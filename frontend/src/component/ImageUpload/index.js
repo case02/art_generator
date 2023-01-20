@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getUserData, updateUserData } from '../../utils/api'
+import { getUserData, updateUserUploadedImages } from '../../utils/api';
 import {
 	ref,
 	uploadBytes,
@@ -19,32 +19,40 @@ function ImageUpload() {
 	const imagesListRef = ref(storage, 'images/');
 	const { currentUser } = useAuth();
 
-
-
 	// upload images to storage and return firebase url
 	const uploadFile = () => {
 		if (imageUpload == null) return;
-		const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-
-		//upload images to all images 
-		uploadBytes(imageRef, imageUpload).then((snapshot) => {
-			getDownloadURL(snapshot.ref).then((url) => {
-				setImageUrls((prev) => [...prev, url]);
+		if (currentUser) {
+			const userImageRef = ref(
+				storage,
+				`images/${currentUser.uid}/${imageUpload.name + v4()}`
+			);
+			// upload image to user specific images and add to url to user data
+			uploadBytes(userImageRef, imageUpload).then((snapshot) => {
+				getDownloadURL(snapshot.ref).then((url) => {
+					updateUserUploadedImages(currentUser, url);
+					setImageUrls((prev) => [...prev, url]);
+				});
 			});
-		});
+			const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
 
-		if (!currentUser) return;
-		const userImageRef = ref(
-			storage,
-			`userImages/${currentUser.uid}/${imageUpload.name}`
-		);
-		// upload image to user specific images and add to url to user data
-		uploadBytes(userImageRef, imageUpload).then((snapshot) => {
-			getDownloadURL(snapshot.ref).then((url) => {
-				updateUserData(currentUser, url);
+			//upload images to all images
+			uploadBytes(imageRef, imageUpload).then((snapshot) => {
+				getDownloadURL(snapshot.ref).then((url) => {
+					setImageUrls((prev) => [...prev, url]);
+				});
 			});
-		});
+		} else {
+			const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
 
+			//upload images to all images 
+			uploadBytes(imageRef, imageUpload).then((snapshot) => {
+				getDownloadURL(snapshot.ref).then((url) => {
+					setImageUrls((prev) => [...prev, url]);
+				});
+			});
+		}
+		
 	};
 
 
@@ -57,7 +65,7 @@ function ImageUpload() {
 				});
 			});
 		});
-		getUserData(currentUser)
+		
 	}, []);
 
 	return (
@@ -69,6 +77,7 @@ function ImageUpload() {
 				}}
 			/>
 			<button onClick={uploadFile}> Upload Image</button>
+			<br />
 			{imageUrls.map((url, i) => {
 				return <img key={i} src={url} />;
 			})}

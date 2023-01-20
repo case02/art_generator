@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react'
+import { Figure } from 'react-bootstrap';
 import {
 	ref,
-	uploadBytes,
 	getDownloadURL,
 	listAll,
-	list,
 } from 'firebase/storage';
 import { useAuth } from '../../contexts/AuthContext';
 import { storage } from '../../firebase.js';
@@ -15,7 +14,7 @@ export default function UserImages() {
 
     useEffect(() => {
         if (currentUser) {
-            const userImagesListRef = ref(storage, `userImages/${currentUser.uid}`);
+            const userImagesListRef = ref(storage, `images/${currentUser.uid}`);
 
             // list all current user images
             listAll(userImagesListRef).then((response) => {
@@ -34,11 +33,13 @@ export default function UserImages() {
   return (
     <>
         {currentUser ?
-        <div>
+        <Figure>
 			{userImageUrls.map((url, i) => {
-				return <img key={i} src={url} />;
+				return (
+                    <Figure.Image key={i} width={171} height={180} src={url} />
+                )
 			})}
-		</div>
+		</Figure>
         : null}
     </>
 		

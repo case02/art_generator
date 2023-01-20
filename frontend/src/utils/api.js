@@ -15,7 +15,7 @@ export const getUserData = async (currentUser) => {
 	const currentUserDocSnap = await getDoc(currentUserDocRef);
 
 	if (currentUserDocSnap.exists()) {
-		console.log('Document data:', currentUserDocSnap.data());
+		return currentUserDocSnap.data();
 	} else {
 		// doc.data() will be undefined in this case
 		console.log('No such document!');
@@ -23,8 +23,8 @@ export const getUserData = async (currentUser) => {
 
 }
 
-// update user in firestore db
-export const updateUserData = async (currentUser, fieldValue ) => {
+// add to users uploaded images array in firestore db
+export const updateUserUploadedImages = async (currentUser, fieldValue ) => {
 	const currentUserDocRef = doc(db, 'users', currentUser.uid);
 	// const field = fieldParam;
 	// Atomically add a new image to the "uploadedImages" array field.

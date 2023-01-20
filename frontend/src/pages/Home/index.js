@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import UserImages from '../../component/UserImages'
 import GenerativeArt from '../../component/GenerativeArt'
 // firestore
 import { doc, setDoc, collection, getDocs } from 'firebase/firestore'; 
@@ -38,7 +37,6 @@ export default function Home() {
 				Homepage
 				<Button onClick={handleAdd}>Send</Button>
 				{/* <GenerativeArt /> */}
-				<UserImages />
 			</div>
 		</div>
 	);
