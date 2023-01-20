@@ -4,7 +4,7 @@ import { Card, Button, Alert, Container, Modal } from
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 
-export default function UserProfileModal(show, onHide, userData) {
+export default function UserProfileModal(show, onHide) {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const { currentUser, logout, deleteUser } = useAuth();
@@ -33,19 +33,21 @@ export default function UserProfileModal(show, onHide, userData) {
         }
     }
 
-    const DeleteMessage = () => {
-
+    const deleteMessage = () => {
         return (
 					<>
 						<Alert vaiant='danger'>
 							Are you sure you wish to delete this account?
 						</Alert>
-						<Button variant='primary' onClick={setShowMessage(false)}>
-							Cancel
-						</Button>
-						<Button variant='danger' onClick={handleDelete}>
-							Delete
-						</Button>
+                        <div className="text-center">
+                            <Button variant='primary' onClick={()=>setShowMessage(false)}>
+							    Cancel
+						    </Button>
+                            {' '}
+                            <Button variant='danger' onClick={handleDelete}>
+                                Delete
+                            </Button>
+                        </div>
 					</>
 				);
     }
@@ -60,32 +62,29 @@ export default function UserProfileModal(show, onHide, userData) {
 			<Modal.Header closeButton>
 				<Modal.Title id='contained-modal-title-vcenter'>Profile</Modal.Title>
 			</Modal.Header>
-			<Modal.Body>
-				<div className='w-100' style={{ maxWidth: '400px' }}>
-					{error && <Alert variant='danger'>{error}</Alert>}
-					<strong>Email: </strong> {currentUser.email} {currentUser.uid}
-					<Link to='/update-profile' className='btn btn-primary w-100 mt-3'>
-						Update Profile
-					</Link>
-					<div className='w-100 text-center mt-2'>
-                        {!showMessage ?
-                            <div>
-                                <Button variant='light' onClick={handleLogout}>
-                                    Log out
-                                </Button> 
-                                {' '}
-                                <Button variant='light' onClick={setShowMessage(true)}>
-                                    Delete User
-                                </Button> 
-                            </div>
-                            
-                        : <DeleteMessage /> }
+			{!showMessage ? (
+				<Modal.Body>
+					<div className='w-100' style={{ maxWidth: '400px' }}>
+						{error && <Alert variant='danger'>{error}</Alert>}
+						<strong>Email: </strong> {currentUser.email}
+						<Link to='/update-profile' className='btn btn-primary w-100 mt-3'>
+							Update Profile
+						</Link>
+						<div className='w-100 text-center mt-2'>
+							<div>
+								<Button variant='light' onClick={handleLogout}>
+									Log out
+								</Button>{' '}
+								<Button variant='light' onClick={setShowMessage}>
+									Delete User
+								</Button>
+							</div>
+						</div>
 					</div>
-				</div>
-			</Modal.Body>
-			<Modal.Footer>
-				<Button onClick={onHide}>Close</Button>
-			</Modal.Footer>
+				</Modal.Body>
+			) : (
+				deleteMessage()
+			)}
 		</Modal>
 	);
 }

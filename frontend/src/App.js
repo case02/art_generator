@@ -50,7 +50,7 @@ function App() {
 
 				{/* Private Routes */}
 				<Route exact path='/profile' element={<PrivateRoute />}>
-					<Route exact path='/profile' element={<Profile userData={userData} />} />
+					<Route exact path='/profile' element={<Profile userdata={userData} />} />
 				</Route>
 				<Route exact path='/' element={<PrivateRoute />}>
 					<Route exact path='/update-profile' element={<UpdateProfile />} />
