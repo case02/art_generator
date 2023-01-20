@@ -10,7 +10,7 @@ import {
 import { useAuth } from '../../contexts/AuthContext';
 import { storage } from '../../firebase.js';
 import { v4 } from 'uuid';
-
+import TextToImage from '../TextToImage';
 
 function ImageUpload() {
 	const [imageUpload, setImageUpload] = useState(null);
@@ -70,6 +70,7 @@ function ImageUpload() {
 
 	return (
 		<div className='App'>
+			<TextToImage />
 			<input
 				type='file'
 				onChange={(event) => {
@@ -80,7 +81,7 @@ function ImageUpload() {
 			<br />
 			{imageUrls.map((url, i) => {
 				return <img key={i} src={url} />;
-			})}
+			})}	
 		</div>
 	);
 }

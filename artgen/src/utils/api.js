@@ -1,13 +1,7 @@
-import axios from 'axios';
 import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { db } from '../firebase';
 
 // FUNCTIONS
-
-export async function getIndexRoute() {
-	const { data } = await axios.get('http://localhost:8000');
-	return data;
-}
 
 // get user from firestore db
 export const getUserData = async (currentUser) => {
