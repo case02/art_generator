@@ -12,23 +12,23 @@ import './style.css'
 
 // image modal
 function ShowImageModal(props) {
-			return (
-				<Modal
-					{...props}
-					size='lg'
-					aria-labelledby='contained-modal-title-vcenter'
-					centered
-					dialogClassName='modal-90w'>
-					<Modal.Body className='modal-body'>
-						<img
-							src={props.imgUrl}
-							alt='selected'
-							style={{ maxHeight: '80vh', maxWidth: '80vw' }}
-						/>
-					</Modal.Body>
-				</Modal>
-			);
-		}
+    return (
+        <Modal
+            {...props}
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'
+            centered
+            dialogClassName='modal-90w'>
+            <Modal.Body className='modal-body'>
+                <img
+                    src={props.imgUrl}
+                    alt='selected'
+                    style={{ maxHeight: '80vh', maxWidth: '80vw' }}
+                />
+            </Modal.Body>
+        </Modal>
+    );
+}
 
 export default function UserImages() {
     const { currentUser } = useAuth();

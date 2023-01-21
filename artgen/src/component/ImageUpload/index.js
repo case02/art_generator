@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getUserData, updateUserUploadedImages } from '../../utils/api';
 import {
 	ref,
@@ -11,16 +11,42 @@ import { useAuth } from '../../contexts/AuthContext';
 import { storage } from '../../firebase.js';
 import { v4 } from 'uuid';
 import TextToImage from '../TextToImage';
-import { Figure, Button, InputGroup, Form } from 'react-bootstrap';
+import { Figure, Button, InputGroup, Form, Modal } from 'react-bootstrap';
 import './style.css'
+
+// image modal
+function ShowImageModal(props) {
+    return (
+        <Modal
+            {...props}
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'
+            centered
+            dialogClassName='modal-90w'>
+            <Modal.Body className='modal-body'>
+                <img
+                    src={props.imgUrl}
+                    alt='selected'
+                    style={{ maxHeight: '80vh', maxWidth: '80vw' }}
+                />
+            </Modal.Body>
+        </Modal>
+    );
+}
 
 function ImageUpload() {
 	const [imageUpload, setImageUpload] = useState(null);
 	const [imageUrls, setImageUrls] = useState([]);
-	// console.log(imageUrls)
 	const imagesListRef = ref(storage, 'images/');
 	const { currentUser } = useAuth();
+	const [modalShow, setModalShow] = React.useState(false);
+	const [modalUrl, setModalUrl] = React.useState('');
 
+	const openModal = (e) => {
+		setModalUrl(e.target.src);
+		setModalShow(true);
+		console.log(e.target.src);
+	};
 	// upload images to storage and return firebase url
 	const uploadFile = () => {
 		if (imageUpload == null) return;
@@ -90,17 +116,24 @@ function ImageUpload() {
 			<Figure className='mt-4'>
 				{imageUrls.map((url, i) => {
 					return (
-						<Figure.Image
-							fluid
-							rounded
-							className='m-1 user-image'
-							key={i}
-							alt='all images'
-							src={url}
-						/>
+						<div onClick={(e) => openModal(e)}>
+							<Figure.Image
+								fluid
+								rounded
+								className='m-1 user-image'
+								key={i}
+								alt='all images'
+								src={url}
+							/>
+						</div>
 					);
 				})}
 			</Figure>
+			<ShowImageModal
+				show={modalShow}
+				onHide={() => setModalShow(false)}
+				imgUrl={modalUrl}
+			/>
 		</div>
 	);
 }
