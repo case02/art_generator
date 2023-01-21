@@ -1,55 +1,34 @@
-header {
-  display: flex;
+.nav-head {
+  float: right;
   max-height: 72px;
-  justify-content: space-between;
-  align-items: center;
   background: #0D1B2A;
 }
-header .logo {
-  display: flex;
-}
-header .logo img {
-  max-width: 50px;
-  max-height: 50px;
-  margin-top: 2em;
-  margin-left: 1em;
-}
-header .logo h6 {
-  margin-top: 2em;
-  line-height: 5;
-  color: white;
-}
-header .logo {
-  display: flex;
-}
-header .nav-links {
-  position: absolute;
+.nav-head .nav-links {
+  position: fixed;
   top: 0;
   right: 0;
   text-align: right;
-  border-radius: 0.5em;
   padding: 1em;
 }
-header .nav-links ul {
+.nav-head .nav-links ul {
   list-style: none;
 }
-header .nav-links ul li {
+.nav-head .nav-links ul li {
   display: inline-block;
-  margin-left: 1em;
-  font-weight: 500;
+  margin-left: 8px;
   text-decoration: none;
 }
-header .nav-links ul li a {
-  color: white;
+.nav-head .nav-links ul li a {
+  color: rgb(20, 19, 19);
   text-decoration: none;
 }
-header .nav-links ul li a,
-header .nav-links ul li button {
-  transition: all 0.3s ease 0s;
+.nav-head .nav-links ul li a,
+.nav-head .nav-links ul li button {
+  transition: all 0.5s ease 0s;
 }
-header .nav-links ul li a:hover,
-header .nav-links ul li button:hover {
-  color: #133e7c;
+.nav-head .nav-links ul li a:hover,
+.nav-head .nav-links ul li button:hover {
+  color: #5f6164;
 }
 
 @media (min-width: 900px) {

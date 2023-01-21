@@ -11,7 +11,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { storage } from '../../firebase.js';
 import { v4 } from 'uuid';
 import TextToImage from '../TextToImage';
-import { Figure, Button, InputGroup, Form, Modal } from 'react-bootstrap';
+import { Figure, Button, Form, Modal } from 'react-bootstrap';
 import './style.css'
 
 // image modal
@@ -25,9 +25,9 @@ function ShowImageModal(props) {
             dialogClassName='modal-90w'>
             <Modal.Body className='modal-body'>
                 <img
-                    src={props.imgUrl}
+                    src={props.imgurl}
                     alt='selected'
-                    style={{ maxHeight: '80vh', maxWidth: '80vw' }}
+                    style={{ maxHeight: '100%', maxWidth: '100%' }}
                 />
             </Modal.Body>
         </Modal>
@@ -116,12 +116,11 @@ function ImageUpload() {
 			<Figure className='mt-4'>
 				{imageUrls.map((url, i) => {
 					return (
-						<div onClick={(e) => openModal(e)}>
+						<div key={i} onClick={(e) => openModal(e)}>
 							<Figure.Image
 								fluid
 								rounded
 								className='m-1 user-image'
-								key={i}
 								alt='all images'
 								src={url}
 							/>
@@ -132,7 +131,7 @@ function ImageUpload() {
 			<ShowImageModal
 				show={modalShow}
 				onHide={() => setModalShow(false)}
-				imgUrl={modalUrl}
+				imgurl={modalUrl}
 			/>
 		</div>
 	);

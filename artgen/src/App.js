@@ -19,6 +19,7 @@ import PrivateRoute from './component/PrivateRoute';
 import NavBar from './component/NavBar';
 import Footer from './component/Footer';
 
+
 function App() {
 	const { currentUser } = useAuth();
 	const [userData, setUserData] = useState({});
@@ -110,6 +111,7 @@ function App() {
 						</>
 					}
 				/>
+
 			</Routes>
 		</div>
 	);

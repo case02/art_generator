@@ -1,38 +1,13 @@
-header {
-    display: flex;
+.nav-head {
+    float: right;
     max-height: 72px;
-    justify-content: space-between;
-    align-items: center;
-    // padding: 1em;
     background: #0D1B2A;
 
-    .logo {
-        display: flex;
-
-        img {
-            max-width: 50px;
-            max-height: 50px;
-            margin-top: 2em;
-            margin-left: 1em;
-        }
-        h6 {
-            margin-top: 2em;
-            line-height: 5;
-            color: white;
-        }
-    }
-    
-    .logo {
-        display: flex;
-    }
-
     .nav-links {
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         text-align: right;
-        // background: #002A3E;
-        border-radius: .5em;
         padding: 1em;
 
         ul {
@@ -40,24 +15,22 @@ header {
 
             li {
                 display: inline-block;
-                // margin-bottom: 1em;
-                margin-left: 1em;
-                font-weight: 500;
+                margin-left: 8px;
                 text-decoration: none;
 
                 a {
-                    color: white;
+                    color: rgb(20, 19, 19);
                     text-decoration: none;
                 }
 
                 a,
                 button {
-                    transition: all 0.3s ease 0s;
+                    transition: all 0.5s ease 0s;
                 }
 
                 a:hover,
                 button:hover {
-                    color: #133e7c
+                    color: #5f6164;
                 }
             }
         }

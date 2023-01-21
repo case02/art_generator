@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 //firestore
 import { doc, setDoc, collection, getDocs } from 'firebase/firestore'; 
 import { db } from '../../firebase';
+import './style.css'
 
 export default function Signup() {
 	const usernameRef = useRef();
@@ -48,54 +49,57 @@ export default function Signup() {
 
 
 	return (
-		<Container
-			className='container d-flex align-items-center justify-content-center'
-			style={{ minHeight: '60vh' }}>
-			{!userExists ? (
-				<div className='w-100' style={{ maxWidth: '400px' }}>
-					<Card className='card signup-card'>
-						<Card.Body>
-							<h2 className='w-100 text-center mt-2'>Sign Up</h2>
+		<section className='container'>
+			<Container
+				className=' d-flex align-items-center justify-content-center'
+				style={{ minHeight: '60vh' }}>
+				{!userExists ? (
+					<div className='w-100' style={{ maxWidth: '400px' }}>
+						<Card className='card signup-card'>
+							<Card.Body>
+								<h2 className='w-100 text-center mt-2'>Sign Up</h2>
 
-							{error && <Alert variant='danger'>{error}</Alert>}
-							<Form onSubmit={handleSubmit}>
-								<Form.Group id='username'>
-									<Form.Label>Username</Form.Label>
-									<Form.Control type='text' ref={usernameRef} required />
-								</Form.Group>
-								<Form.Group id='email'>
-									<Form.Label>Email</Form.Label>
-									<Form.Control type='email' ref={emailRef} required />
-								</Form.Group>
-								<Form.Group id='password'>
-									<Form.Label>Password</Form.Label>
-									<Form.Control type='password' ref={passwordRef} required />
-								</Form.Group>
-								<Form.Group id='password-confirm'>
-									<Form.Label>Password Confirmation</Form.Label>
-									<Form.Control
-										type='password'
-										ref={passwordConfirmRef}
-										required
-									/>
-								</Form.Group>
-								<br />
-								<Button disabled={loading} className='w-100' type='submit'>
-									Sign Up
-								</Button>
-							</Form>
-						</Card.Body>
-					</Card>
-					<div className='w-100 text-center mt-2'>
-						Already have an account? <Link to='/login'>Log In</Link>
+								{error && <Alert variant='danger'>{error}</Alert>}
+								<Form onSubmit={handleSubmit}>
+									<Form.Group id='username'>
+										<Form.Label>Username</Form.Label>
+										<Form.Control type='text' ref={usernameRef} required />
+									</Form.Group>
+									<Form.Group id='email'>
+										<Form.Label>Email</Form.Label>
+										<Form.Control type='email' ref={emailRef} required />
+									</Form.Group>
+									<Form.Group id='password'>
+										<Form.Label>Password</Form.Label>
+										<Form.Control type='password' ref={passwordRef} required />
+									</Form.Group>
+									<Form.Group id='password-confirm'>
+										<Form.Label>Password Confirmation</Form.Label>
+										<Form.Control
+											type='password'
+											ref={passwordConfirmRef}
+											required
+										/>
+									</Form.Group>
+									<br />
+									<Button disabled={loading} className='w-100' type='submit'>
+										Sign Up
+									</Button>
+								</Form>
+							</Card.Body>
+						</Card>
+						<div className='w-100 text-center mt-2'>
+							Already have an account? <Link to='/login'>Log In</Link>
+						</div>
 					</div>
-				</div>
-			) : (
-				<div>
-					<p>You are already signed in as</p>
-					{currentUser.email}
-				</div>
-			)}
-		</Container>
+				) : (
+					<div>
+						<p>You are already signed in as</p>
+						{currentUser.email}
+					</div>
+				)}
+			</Container>
+		</section>
+		
 	);
 }

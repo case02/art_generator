@@ -21,9 +21,9 @@ function ShowImageModal(props) {
             dialogClassName='modal-90w'>
             <Modal.Body className='modal-body'>
                 <img
-                    src={props.imgUrl}
+                    src={props.imgurl}
                     alt='selected'
-                    style={{ maxHeight: '80vh', maxWidth: '80vw' }}
+                    style={{ maxHeight: '100%', maxWidth: '100%' }}
                 />
             </Modal.Body>
         </Modal>
@@ -42,18 +42,18 @@ export default function UserImages() {
         }
     
     useEffect(() => {
-        // if (currentUser) {
-        //     const userImagesListRef = ref(storage, `images/${currentUser.uid}`);
+        if (currentUser) {
+            const userImagesListRef = ref(storage, `images/${currentUser.uid}`);
 
-        //     // list all current user images
-        //     listAll(userImagesListRef).then((response) => {
-        //         response.items.forEach((item) => {
-        //             getDownloadURL(item).then((url) => {
-        //                 setUserImageUrls((prev) => [...prev, url]);
-        //             });
-        //         });
-        //     });
-        // }
+            // list all current user images
+            listAll(userImagesListRef).then((response) => {
+                response.items.forEach((item) => {
+                    getDownloadURL(item).then((url) => {
+                        setUserImageUrls((prev) => [...prev, url]);
+                    });
+                });
+            });
+        }
      
 
     }, []);
@@ -62,22 +62,20 @@ export default function UserImages() {
 		<>
 			{currentUser ? (
 				<Figure className='mt-4'>
-					{/* {userImageUrls.map((url, i) => {
+					{userImageUrls.map((url, i) => {
 				return (
-                    <div onClick={(e)=>openModal(e)}>
-                        <Figure.Image
-                            fluid
-                            rounded
-                            className='m-1 user-image'
-                            key={i}
-                            alt='user images'
-                            src={url}
-                        />
-                    </div>
-
+					<div key={i} onClick={(e) => openModal(e)}>
+						<Figure.Image
+							fluid
+							rounded
+							className='m-1 user-image'
+							alt='user images'
+							src={url}
+						/>
+					</div>
 				);
-			})} */}
-					<div onClick={(e) => openModal(e)}>
+			})}
+					{/* <div onClick={(e) => openModal(e)}>
 						<Figure.Image
 							fluid
 							rounded
@@ -87,13 +85,13 @@ export default function UserImages() {
 								'https://images.pexels.com/photos/8588477/pexels-photo-8588477.jpeg'
 							}
 						/>
-					</div>
+					</div> */}
 				</Figure>
 			) : null}
 			<ShowImageModal 
                 show={modalShow}
                 onHide={() => setModalShow(false)}
-                imgUrl={modalUrl}
+                imgurl={modalUrl}
             />
 		</>
 	);

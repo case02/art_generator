@@ -29,9 +29,10 @@ export default function Nav(props) {
 				return (
 					<>
 						<li>
-							<Link to='/profile'>
-								Profile
-							</Link>
+							<Link to='/generator'>Get Started</Link>
+						</li>
+						<li>
+							<Link to='/profile'>Profile</Link>
 						</li>
 						<li>
 							<Link onClick={handleLogout} to='/'>
@@ -42,38 +43,25 @@ export default function Nav(props) {
 				);
 			} else {
 				return (
-					<li>
-						<Link to='/signup'>
-							Sign Up
-						</Link>
-					</li>
+					<>
+						<li>
+							<Link to='/signup'>Sign Up</Link>
+						</li>
+						<li>
+							<Link to='/login'>Log in</Link>
+						</li>
+					</>
+					
 				);
 			}
 		};
 
 	
 	return (
-		<header>
-			<div className='logo'>
-				<Link className='mt-1' to='/'>
-					<img alt='A G' className='logo' src={artgen} />
-				</Link>
-				<h6>art generator</h6>
-			</div>
-			<nav>
+		<header className='nav-head'>
+			<nav className='navbar'>
 				<div className='nav-links'>
 					<ul>
-						<li>
-							<Link to='/'>Home</Link>
-						</li>
-						{/* <li>
-                            <Link> to="/about" >  
-                                About
-                            </Link>
-                        </li> */}
-						<li>
-							<Link to='/generator'>Generator</Link>
-						</li>
 						{conditionalUserLink()}
 					</ul>
 				</div>
