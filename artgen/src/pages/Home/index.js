@@ -3,20 +3,37 @@ import GenerativeArt from '../../component/GenerativeArt'
 import {
 	MDBBtn,
 } from 'mdb-react-ui-kit';
+import { useAuth } from '../../contexts/AuthContext';
 import './style.css'
 
 export default function Home() {
-
+	const { currentUser } = useAuth();
+	
+	const signedIn = () => {
+		if (currentUser) {
+			return (
+				<a href='/generator'>
+					<button>GET STARTED</button>
+				</a>
+			);
+		} else {
+			return (
+				<a href='/signup'>
+					<button>GET STARTED</button>
+				</a>
+			);
+		}
+	}
   return (
 		<div className='home-container'>
 			<div className='home-content'>
-				<img src="https://images.pexels.com/photos/5794559/pexels-photo-5794559.jpeg" alt="potrait" />
+				<img className="home-img" src="https://images.pexels.com/photos/5794559/pexels-photo-5794559.jpeg" alt="potrait" />
 				<section className="cta">
 					<h2>ARTGEN</h2>
 					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lectus sit amet enim pellentesque, nec ultricies eros rutrum.
+					A place to upload images...
 					</p>
-				<a href="/generator"><button>GET STARTED</button></a>
+				{signedIn()}
 				</section> 
 			</div>
 		</div>

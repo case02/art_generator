@@ -35,29 +35,81 @@ function App() {
 
 	return (
 		<div className='App'>
-			<NavBar />
-			
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route path='/generator' element={<Generator />} />
-				<Route path='*' element={<NotFound />} />
+				<Route
+					path='/generator'
+					element={
+						<>
+							<NavBar />
+							<Generator />
+						</>
+					}
+				/>
+				<Route
+					path='*'
+					element={
+						<>
+							<NavBar />
+							<NotFound />
+						</>
+					}
+				/>
 
 				{/* Private Routes */}
 				<Route exact path='/profile' element={<PrivateRoute />}>
 					<Route
 						exact
 						path='/profile'
-						element={<Profile userdata={userData} />}
+						element={
+							<>
+								<NavBar />
+								<Profile userdata={userData} />
+							</>
+						}
 					/>
 				</Route>
 				<Route exact path='/' element={<PrivateRoute />}>
-					<Route exact path='/update-profile' element={<UpdateProfile />} />
+					<Route
+						exact
+						path='/update-profile'
+						element={
+							<>
+								<NavBar />
+								<UpdateProfile />
+							</>
+						}
+					/>
 				</Route>
 
 				{/* Signup Routes */}
-				<Route path='/signup' element={<Signup />} />
-				<Route path='/login' element={<Login />} />
-				<Route path='/forgot-password' element={<ForgotPassword />} />
+				<Route
+					path='/signup'
+					element={
+						<>
+							<NavBar />
+							<Signup />
+						</>
+					}
+				/>
+				<Route
+					path='/login'
+					element={
+						<>
+							<NavBar />
+							<Login />
+						</>
+					}
+				/>
+				<Route
+					path='/forgot-password'
+					element={
+						<>
+							<NavBar />
+							<ForgotPassword />
+						</>
+					}
+				/>
 			</Routes>
 		</div>
 	);
