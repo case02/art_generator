@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# ArtGen
+A space to upload and save photos. Future versions will incorporate art generators that will allow for image modification.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Deployed Application through Firebase
+[Artgen](https://artgen-0.web.app/)
 
-## Available Scripts
+## Technologies Used
+- React JS
+- Firebase (Authentication, Storage, Firestore Database, and Hosting)
 
-In the project directory, you can run:
+## Installation instructions
+- npm i or yarn install, to install all dependencies located in package.json
+- This application uses firebase for all backend functions, look up how to initialize Firebase [here](https://firebase.google.com/docs/web/setup)
 
-### `yarn start`
+## Application Features
+- Able to upload and store user images 
+- Sign up and login pages for new and current users
+- Full CRUD on User
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Approach Taken towards MVP and Completion
+During the initial stages of planning, I was eager to create an application that would allow a user to generate new art works using photos of their choice. At this stage I was still thinking of using either a MERN or PERN stack, but with the requirement of storing images as file data I had to find an alternative Database. This led me using a FRN (Firebase, React, NodeJS) stack for my application. Learning the unfamiliar stack was a ambitious initiative that brought along many headaches but that I'm ultimatley happy that I took. Although, learning the new tech was time consuming and took away some possibilities from my initial goal for the application. I was still able to complete an application that met my MVP goals. The current application does not have the Art Generator that I wanted when I first proposed this project but it does have the foundation to apply such a feature for when I continur=e to work on this project at a later time.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## User Stories:
+- As an art admirer, I want to view new art in an uncomplicated and easy accessible way.
+- As an artist I like to explore new mediums, an art generator that is randomized allows for new possibilities.
+- As a bored kid, I like to browse and find new interesting things on the web, creating new pieces of art or editing images online is a fun way to keep distracted and entertained.
+- As a photographer, I'd like a place to store my photos that I can have access to as long as I have wifi.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Wireframes: 
+# ![Homepage](src/images/wireframe_project_four/home_pg.png)
+# ![Signup page](src/images/wireframe_project_four/login_pg.png)
+# ![Create New Page](src/images/wireframe_project_four/create_new_pg.png)
+# ![User Page](src/images/wireframe_project_four/user_pg.png)
