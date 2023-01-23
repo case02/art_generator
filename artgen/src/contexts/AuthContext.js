@@ -21,12 +21,11 @@ export function AuthProvider({children}) {
     }
 
     // add user to db with image 
-    function addUserData(username, email, uploadedImages) {
+    function addUserData(username, email) {
 			// return promise of succesful login, can be used to return error
 			return setDoc(doc(db, 'users', currentUser.uid), {
 				username: username,
 				email: email,
-				uploadedImages: uploadedImages
 			});
 		}
 

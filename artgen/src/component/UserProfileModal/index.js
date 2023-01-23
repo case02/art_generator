@@ -72,10 +72,16 @@ export default function UserProfileModal(show, onHide) {
 						</Link>
 						<div className='w-100 text-center mt-2'>
 							<div>
-								<Button variant='light' onClick={handleLogout}>
+								<Button
+									variant='light'
+									style={{ maxWidth: '100px' }}
+									onClick={handleLogout}>
 									Log out
 								</Button>{' '}
-								<Button variant='light' onClick={setShowMessage}>
+								<Button
+									style={{ maxWidth: '150px' }}
+									variant='light'
+									onClick={setShowMessage}>
 									Delete User
 								</Button>
 							</div>
