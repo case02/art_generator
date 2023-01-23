@@ -31,10 +31,10 @@ Firebase was the beginning and end to all my major road blocks. Learning a new s
 
 
 ### Wireframes: 
-# ![](src/images/wireframe_project_four/home_pg.png)
-# ![](src/images/wireframe_project_four/login_pg.png)
-# ![](src/images/wireframe_project_four/create_new_pg.png)
-# ![](src/images/wireframe_project_four/user_pg.png)
+# ![](artgen/src/images/wireframe_project_four/home_pg.png)
+# ![](artgen/src/images/wireframe_project_four/login_pg.png)
+# ![](artgen/src/images/wireframe_project_four/create_new_pg.png)
+# ![](artgen/src/images/wireframe_project_four/user_pg.png)
 
 ## Stretch Goals
 - Art genarator(s) to allow modification to user images 
