@@ -1,7 +1,12 @@
+.image-container{
+    width:90vw;
+    display:flex;
+}
+
 .user-image{
     max-height: 200px;
     max-width: 300px;
-    transition: transform .2s;
+    transition: transform .5s ease;
 }
 .user-image:hover {
     transform: scale(1.05);

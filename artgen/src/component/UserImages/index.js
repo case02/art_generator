@@ -61,7 +61,7 @@ export default function UserImages() {
   return (
 		<>
 			{currentUser ? (
-				<Figure className='mt-4'>
+				<Figure className='mt-4 image-container'>
 					{userImageUrls.map((url, i) => {
 				return (
 					<div key={i} onClick={(e) => openModal(e)}>
@@ -75,17 +75,6 @@ export default function UserImages() {
 					</div>
 				);
 			})}
-					{/* <div onClick={(e) => openModal(e)}>
-						<Figure.Image
-							fluid
-							rounded
-							className='m-1 user-image'
-							alt='user images'
-							src={
-								'https://images.pexels.com/photos/8588477/pexels-photo-8588477.jpeg'
-							}
-						/>
-					</div> */}
 				</Figure>
 			) : null}
 			<ShowImageModal 

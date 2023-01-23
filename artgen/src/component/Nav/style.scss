@@ -5,9 +5,10 @@
 
     .nav-links {
         position: fixed;
+        width: 100%;
         top: 0;
-        right: 0;
-        text-align: right;
+        left: 0;
+        text-align: center;
         padding: 1em;
 
         ul {
@@ -15,7 +16,7 @@
 
             li {
                 display: inline-block;
-                margin-left: 8px;
+                margin: 0 15px;
                 text-decoration: none;
 
                 a {
